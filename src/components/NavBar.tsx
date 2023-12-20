@@ -10,6 +10,7 @@ export default function NavBar() {
   const [screenWidth, setScreenWidth] = useState(0);
 
   useEffect(() => {
+    setScreenWidth(window.innerWidth);
     function resizeEvent() {
       setScreenWidth(window.innerWidth);
     }
@@ -24,7 +25,7 @@ export default function NavBar() {
   return (
     <nav
       className={
-        'max-w-7xl ml-auto mr-auto flex flex-row justify-between py-4 px-4 bg-black'
+        'section flex flex-row justify-between py-6 -bg--Black items-center'
       }
     >
       <LogoWithText />

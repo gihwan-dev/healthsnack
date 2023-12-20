@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Hahmlet } from 'next/font/google';
 import './globals.css';
 import { ReactNode } from 'react';
 import NavBar from '@/components/NavBar';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Hahmlet({ subsets: ['latin', 'latin-ext', 'vietnamese'] });
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -28,7 +28,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={`-bg--Black ${inter.className} hidden-scroll overflow-x-hidden`}
+      >
         <NavBar />
         {children}
         {hero}
