@@ -1,30 +1,39 @@
-import LogoWithText from '@/assets/images/logo-with-text';
-import Link from 'next/link';
+'use client';
 
-const logoList = [
-  { text: '메인', link: '#main' },
-  { text: '특징', link: '#features' },
-  { text: '상품', link: '#products' },
-  { text: '연락처', link: '#contact' },
-];
+import LogoWithText from '@/assets/images/logo-with-text';
+import { useEffect, useState } from 'react';
+import { isLargeDevice } from '@/utils/ui-utils';
+import LargeScreenNavBar from '@/components/LargeScreenNavBar';
+import SmallScreenNavBar from '@/components/SmallScreenNavBar';
 
 export default function NavBar() {
+  const [screenWidth, setScreenWidth] = useState(0);
+
+  useEffect(() => {
+    setScreenWidth(window.innerWidth);
+    function resizeEvent() {
+      setScreenWidth(window.innerWidth);
+    }
+
+    window.addEventListener('resize', resizeEvent);
+
+    return () => {
+      window.removeEventListener('resize', resizeEvent);
+    };
+  }, []);
+
   return (
     <nav
       className={
-        'max-w-7xl ml-auto mr-auto flex flex-row justify-between py-9 bg'
+        'section flex flex-row justify-between py-6 -bg--Black items-center'
       }
     >
       <LogoWithText />
-      <ul className={'flex flex-row gap-5'}>
-        {logoList.map(link => {
-          return (
-            <li key={`nav-link-${link.text}`}>
-              <Link href={link.link}>{link.text}</Link>
-            </li>
-          );
-        })}
-      </ul>
+      {isLargeDevice(screenWidth) ? (
+        <LargeScreenNavBar />
+      ) : (
+        <SmallScreenNavBar />
+      )}
     </nav>
   );
 }
