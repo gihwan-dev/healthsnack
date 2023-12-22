@@ -25,17 +25,20 @@ const SmallScreenNavBar = () => {
         <>
           <div
             onClick={onClickBackDrop}
-            className={'fixed z-10 left-0 top-0 w-screen h-screen'}
+            className={'fixed left-0 top-0 z-10 h-screen w-screen'}
           ></div>
           <ul
             className={
-              'fixed right-0 top-0 w-10/12 max-w-xs h-screen pl-8 py-8 -bg--Black flex flex-col z-20 gap-6'
+              'fixed right-0 top-0 z-20 flex h-screen w-10/12 max-w-xs flex-col gap-6 -bg--Black py-8 pl-8'
             }
           >
             {logoList.map(item => {
               return (
                 <li key={`${item.text}-small-nav`}>
-                  <Link href={item.link} className={'-text--white'}>
+                  <Link
+                    href={item.link}
+                    className={'-text--white transition-all hover:-text--gold'}
+                  >
                     {item.text}
                   </Link>
                 </li>

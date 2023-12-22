@@ -4,7 +4,7 @@ export default function HeroSection() {
   return (
     <section
       className={
-        'section section-padding flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between lg:gap-0'
+        'section section-padding flex flex-col-reverse gap-32 lg:flex-row lg:items-center lg:justify-between lg:gap-0'
       }
     >
       <HeroLeftImage />
