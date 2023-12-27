@@ -3,7 +3,6 @@ import { Hahmlet } from 'next/font/google';
 import './globals.css';
 import { ReactNode } from 'react';
 import NavBar from '@/components/NavBar';
-import NextAuthProvider from '@/providers/next-auth.providers';
 
 const inter = Hahmlet({ subsets: ['latin', 'latin-ext', 'vietnamese'] });
 
@@ -29,20 +28,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko" suppressHydrationWarning={true}>
-      <NextAuthProvider>
-        <body
-          suppressHydrationWarning={true}
-          className={`-bg--Black ${inter.className} hidden-scroll overflow-x-hidden`}
-        >
-          <NavBar />
-          {children}
-          {hero}
-          {best}
-          {products}
-          {reviews}
-          {footer}
-        </body>
-      </NextAuthProvider>
+      <body
+        suppressHydrationWarning={true}
+        className={`${inter.className} hidden-scroll overflow-x-hidden`}
+      >
+        <NavBar />
+        {children}
+        {hero}
+        {best}
+        {products}
+        {reviews}
+        {footer}
+      </body>
     </html>
   );
 }

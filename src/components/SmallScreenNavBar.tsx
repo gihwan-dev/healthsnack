@@ -29,7 +29,7 @@ const SmallScreenNavBar = () => {
           ></div>
           <ul
             className={
-              'fixed right-0 top-0 z-20 flex h-screen w-10/12 max-w-xs flex-col gap-6 -bg--Black py-8 pl-8'
+              'fixed right-0 top-0 z-20 flex h-screen w-10/12 max-w-xs flex-col gap-6 bg-black py-8 pl-8'
             }
           >
             {logoList.map(item => {
@@ -37,7 +37,7 @@ const SmallScreenNavBar = () => {
                 <li key={`${item.text}-small-nav`}>
                   <Link
                     href={item.link}
-                    className={'-text--white transition-all hover:-text--gold'}
+                    className={'hover:-text--gold text-white transition-all'}
                   >
                     {item.text}
                   </Link>

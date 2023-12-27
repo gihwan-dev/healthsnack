@@ -1,8 +1,8 @@
 const MainTypo = () => {
   return (
     <div className={'flex flex-col gap-6'}>
-      <p className={'-text--white text-8xl font-semibold'}>헬스낵</p>
-      <p className={'-text--gray text-5xl pl-1'}>고기의 정석</p>
+      <p className={'text-8xl font-semibold text-white'}>헬스낵</p>
+      <p className={'pl-1 text-5xl text-gray-600'}>고기의 정석</p>
     </div>
   );
 };

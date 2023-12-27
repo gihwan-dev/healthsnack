@@ -4,7 +4,7 @@ const BuyButton = () => {
   return (
     <Link
       className={
-        'ml-2 w-fit rounded-full -bg--gold px-8 py-4 text-center text-lg font-bold -text--white transition-all hover:-translate-y-1'
+        'bg-gold ml-2 w-fit rounded-full px-8 py-4 text-center text-lg font-bold text-white transition-all hover:-translate-y-1'
       }
       href={'https://smartstore.naver.com/simpleandhealthy'}
     >
