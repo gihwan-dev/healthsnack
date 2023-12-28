@@ -1,58 +1,87 @@
 'use client';
 
 import { productsListData } from '@/const';
-import { Card, CardContent } from '@/components/ui/card';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-  type CarouselApi,
-} from '@/components/ui/carousel';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { isBigSize, setLeftProduct, setRightProduct } from '../utils';
+import ProductItem from './ProductItem';
+import LeftArrow from '@/assets/images/left-arrow';
+import RightArrow from '@/assets/images/right-arrow';
+import ProductDescription from './ProductDescription';
+import { useAnimate } from 'framer-motion';
 
 const ProductListContainer = () => {
-  const [api, setApi] = useState<CarouselApi | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(0);
 
-  const [current, setCurrent] = useState(0);
+  const productLength = productsListData.length;
+
+  const leftProduct = setLeftProduct(selectedProduct, productLength);
+  const rightProduct = setRightProduct(selectedProduct, productLength);
+
+  const handleLeftClick = async () => {
+    setTimeout(() => {
+      setSelectedProduct(leftProduct);
+    }, 1000);
+  };
+
+  const handleRightClick = () => {
+    setSelectedProduct(rightProduct);
+  };
 
   useEffect(() => {
-    if (!api) {
-      return;
-    }
+    setWindowWidth(window.innerWidth);
 
-    setCurrent(api.selectedScrollSnap());
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
 
-    api.on('select', () => {
-      setCurrent(api.selectedScrollSnap());
-    });
-  }, [api]);
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
-    <Carousel setApi={setApi} className="w-full">
-      <CarouselContent>
-        {productsListData.map((product, index) => (
-          <CarouselItem className="lg:basis-1/3" key={`product-${index}`}>
-            <Card>
-              <CardContent>
-                <div className="flex flex-col gap-2">
-                  <div className="flex flex-row justify-between">
-                    <div className="text-2xl font-bold">{product.name}</div>
-                    <div className="text-2xl font-bold">{product.price}</div>
-                  </div>
-                  <div className="flex flex-row justify-between">
-                    <div className="text-sm">{product.description}</div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious variant={'default'} />
-      <CarouselNext variant={'default'} />
-    </Carousel>
+    <ul className="flex flex-col gap-16">
+      <div className="flex flex-row items-center justify-center gap-4 sm:gap-12 md:gap-20 xl:justify-between xl:gap-0">
+        <button onClick={handleLeftClick}>
+          <LeftArrow />
+        </button>
+        <ProductItem
+          key={`product-item-${productsListData[leftProduct].name}`}
+          visibility={isBigSize(windowWidth)}
+          image={productsListData[leftProduct].image}
+          src={productsListData[leftProduct].src}
+          width={268}
+          height={321}
+          isBlur={true}
+        />
+        <ProductItem
+          key={`product-item-${productsListData[selectedProduct].name}`}
+          image={productsListData[selectedProduct].image}
+          src={productsListData[selectedProduct].src}
+          isCenter={true}
+          width={366}
+          height={396}
+        />
+        <ProductItem
+          key={`product-item-${productsListData[rightProduct].name}`}
+          visibility={isBigSize(windowWidth)}
+          image={productsListData[rightProduct].image}
+          src={productsListData[rightProduct].src}
+          width={268}
+          height={321}
+          isBlur={true}
+        />
+        <button onClick={handleRightClick}>
+          <RightArrow />
+        </button>
+      </div>
+      <ProductDescription
+        name={productsListData[selectedProduct].name}
+        description={productsListData[selectedProduct].description}
+        price={productsListData[selectedProduct].price}
+      />
+    </ul>
   );
 };
 

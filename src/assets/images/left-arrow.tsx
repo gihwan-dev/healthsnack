@@ -1,6 +1,7 @@
 const LeftArrow = () => {
   return (
     <svg
+      className="transition-all hover:opacity-60"
       width="16"
       height="27"
       viewBox="0 0 16 27"
