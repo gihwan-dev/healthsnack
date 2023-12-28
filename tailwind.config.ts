@@ -20,6 +20,7 @@ const config = {
     },
     extend: {
       colors: {
+        'gray-light': '#D9D9D9',
         gold: '#F8A44F',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

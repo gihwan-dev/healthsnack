@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 type Props = {
   name: string;
   description: string;
@@ -6,10 +8,12 @@ type Props = {
 
 const ProductDescription: React.FC<Props> = ({ name, description, price }) => {
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-4 text-white">
-      <h3>{name}</h3>
-      <div>{description}</div>
-      <div>{price.toLocaleString()}원</div>
+    <div className="flex w-full flex-col items-center justify-center gap-8 text-white">
+      <h3 className="text-2xl font-semibold text-white">{name}</h3>
+      <div className="text-gray-light h-24 w-72 break-words text-center text-xl">
+        {description}
+      </div>
+      <div className="text-xl font-extrabold">{price.toLocaleString()}원</div>
     </div>
   );
 };
