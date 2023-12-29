@@ -29,17 +29,17 @@ const ProductListContainer = () => {
   }, [api]);
 
   return (
-    <ul className="flex flex-col gap-16 p-6">
+    <ul style={{ height: 600 }} className="flex flex-col gap-16 p-6">
       <Carousel
         setApi={setApi}
         opts={{
           loop: true,
         }}
       >
-        <CarouselContent className="flex flex-row items-center justify-center gap-4 sm:gap-12 md:gap-20 xl:justify-between xl:gap-0">
+        <CarouselContent className="xl:flex xl:w-auto xl:flex-row xl:items-center xl:justify-between xl:gap-0">
           {productsListData.map((product, index) => (
             <CarouselItem
-              className="xl:flex xl:h-96 xl:basis-1/3 xl:flex-row xl:items-center xl:justify-center"
+              className="h-80 basis-full sm:h-96 xl:flex xl:basis-1/3 xl:flex-row xl:items-center xl:justify-center"
               key={`product-${index}`}
             >
               <ProductItem

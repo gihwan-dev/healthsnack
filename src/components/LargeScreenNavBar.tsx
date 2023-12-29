@@ -10,7 +10,7 @@ const LargeScreenNavBar = () => {
         return (
           <li
             key={`nav-link-${link.text}`}
-            className={'hover:-text--gold transition-all'}
+            className={'transition-all hover:text-gold'}
           >
             <Link href={link.link}>{link.text}</Link>
           </li>

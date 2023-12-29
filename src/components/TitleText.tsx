@@ -1,8 +1,17 @@
-const TitleText: React.FC<{
+type TitleTextProps = {
   children: React.ReactNode;
-}> = ({ children }) => {
+  center?: boolean;
+};
+
+const TitleText: React.FC<TitleTextProps> = ({ children, center = true }) => {
   return (
-    <h2 className="text-center text-5xl font-bold text-white">{children}</h2>
+    <h2
+      className={`${
+        center ? 'text-center' : 'text-left'
+      } break-words text-4xl font-bold text-white sm:text-5xl`}
+    >
+      {children}
+    </h2>
   );
 };
 
