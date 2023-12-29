@@ -23,21 +23,37 @@ const ProductItem: React.FC<Props> = ({
   isBlur = false,
 }) => {
   return (
-    <motion.li className={`${visibility ? '' : 'hidden'} relative z-0`}>
+    <motion.li
+      style={{
+        width: '100%',
+        maxWidth: `${width}px`,
+        height: `${height}px`,
+      }}
+      className={`${
+        visibility ? '' : 'hidden'
+      } relative left-1/2 z-0 -translate-x-1/2 transition-all duration-700 xl:left-0 xl:translate-x-0`}
+    >
       <Image
-        width={width}
-        height={height}
+        fill={true}
         src={image}
         alt="product image"
         className={`overflow-hidden rounded-md ${isBlur ? 'blur-sm' : ''}`}
       />
       {isCenter ? (
-        <Link
-          href={src}
-          className={`absolute bottom-4 left-1/2 z-10 box-border w-10/12 -translate-x-1/2 rounded-md bg-black py-2 text-center text-lg font-bold text-gold transition-all hover:scale-105`}
+        <motion.div
+          transition={{
+            duration: 0.7,
+          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
         >
-          구매하러가기
-        </Link>
+          <Link
+            href={src}
+            className={`absolute bottom-24 left-1/2 z-10 box-border w-10/12 -translate-x-1/2 rounded-md bg-black py-2 text-center text-lg font-bold text-gold transition-all hover:scale-105 sm:bottom-6`}
+          >
+            구매하러가기
+          </Link>
+        </motion.div>
       ) : null}
     </motion.li>
   );

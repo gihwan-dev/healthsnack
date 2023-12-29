@@ -37,7 +37,7 @@ const SmallScreenNavBar = () => {
                 <li key={`${item.text}-small-nav`}>
                   <Link
                     href={item.link}
-                    className={'hover:-text--gold text-white transition-all'}
+                    className={'text-white transition-all hover:text-gold'}
                   >
                     {item.text}
                   </Link>

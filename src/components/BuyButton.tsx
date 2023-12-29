@@ -1,11 +1,13 @@
 import Link from 'next/link';
 
-const BuyButton = () => {
+type BuyButtonProps = {
+  rounded?: 'full' | 'sm' | 'md' | 'lg';
+};
+
+const BuyButton: React.FC<BuyButtonProps> = ({ rounded = 'full' }) => {
   return (
     <Link
-      className={
-        'bg-gold ml-2 w-fit rounded-full px-8 py-4 text-center text-lg font-bold text-white transition-all hover:-translate-y-1'
-      }
+      className={`ml-2 w-fit bg-gold rounded-${rounded} px-8 py-4 text-center text-lg font-bold text-white transition-all hover:bg-opacity-70`}
       href={'https://smartstore.naver.com/simpleandhealthy'}
     >
       구매하러 가기

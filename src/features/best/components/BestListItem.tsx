@@ -10,7 +10,7 @@ type Props = {
 const BestListItem = ({ image, title, src }: Props) => {
   return (
     <li
-      className="w-full overflow-hidden rounded-md bg-white"
+      className="w-full overflow-hidden rounded-md bg-white transition-all hover:-translate-y-2"
       style={{ maxWidth: 367 }}
     >
       <Link href={src} target="_blank">
