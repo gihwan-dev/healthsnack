@@ -1,7 +1,8 @@
 'use client';
 
 import { productsListData } from '@/const';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import ProductDescription from './ProductDescription';
 
 import {
@@ -29,7 +30,14 @@ const ProductListContainer = () => {
   }, [api]);
 
   return (
-    <ul style={{ height: 600 }} className="flex flex-col gap-16 p-6">
+    <motion.ul
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 3, type: 'spring' }}
+      viewport={{ once: true, amount: 0.4 }}
+      style={{ height: 600 }}
+      className="flex flex-col gap-16 p-6"
+    >
       <Carousel
         setApi={setApi}
         opts={{
@@ -62,7 +70,7 @@ const ProductListContainer = () => {
         description={productsListData[selectedProduct].description}
         price={productsListData[selectedProduct].price}
       />
-    </ul>
+    </motion.ul>
   );
 };
 

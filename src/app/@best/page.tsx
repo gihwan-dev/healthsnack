@@ -3,7 +3,10 @@ import TitleText from '@/components/TitleText';
 
 export default function BestSection() {
   return (
-    <section className="section section-padding flex flex-col gap-16">
+    <section
+      id="features"
+      className="section section-padding flex flex-col gap-16"
+    >
       <TitleText>주간베스트</TitleText>
       <BestListContainer />
     </section>

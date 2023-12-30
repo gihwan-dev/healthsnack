@@ -1,3 +1,9 @@
+import { Footer } from '@/features/footer';
+
 export default function FooterSection() {
-  return <footer>Footer section</footer>;
+  return (
+    <footer id="contact" className="section section-padding">
+      <Footer />
+    </footer>
+  );
 }
