@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['shop-phinf.pstatic.net'],
+    remotePatterns: ['shop-phinf.pstatic.net'],
   },
 };
 
