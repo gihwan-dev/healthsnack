@@ -49,6 +49,7 @@ const ProductItem: React.FC<Props> = ({
         >
           <Link
             href={src}
+            target="_blank"
             className={`absolute bottom-24 left-1/2 z-10 box-border w-10/12 -translate-x-1/2 rounded-md bg-black py-2 text-center text-lg font-bold text-gold transition-all hover:scale-105 sm:bottom-6`}
           >
             구매하러가기
