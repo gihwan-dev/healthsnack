@@ -1,3 +1,7 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 type ReviewItemProps = {
   children: React.ReactNode;
   isCenter: boolean;
@@ -12,7 +16,11 @@ const ReviewItem: React.FC<ReviewItemProps> = ({
   isShouldMove,
 }) => {
   return (
-    <li
+    <motion.li
+      initial={{ opacity: 0, y: -100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 2, type: 'spring' }}
+      viewport={{ once: true, amount: 1 }}
       style={{
         backgroundImage: `url(${image})`,
         backgroundSize: 'cover',
@@ -23,7 +31,7 @@ const ReviewItem: React.FC<ReviewItemProps> = ({
       } items-center justify-center overflow-hidden rounded-md font-bold text-white`}
     >
       <span className="text-center lg:w-2/3">{children}</span>
-    </li>
+    </motion.li>
   );
 };
 
