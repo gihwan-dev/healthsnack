@@ -29,12 +29,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko" suppressHydrationWarning={true}>
-      <Head>
+      <head>
         <meta
           name="naver-site-verification"
           content="44b51371771d29a54d3f4c4a7d8d4a5b5b97e76d"
         />
-      </Head>
+      </head>
       <body
         suppressHydrationWarning={true}
         className={`${inter.className} hidden-scroll overflow-x-hidden`}
