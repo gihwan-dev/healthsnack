@@ -10,6 +10,10 @@ const inter = Hahmlet({ subsets: ['latin', 'latin-ext', 'vietnamese'] });
 export const metadata: Metadata = {
   title: '헬스낵',
   description: '홍두깨살, 토마호크, 떡볶이 등 헬스에 좋은 간식을 만나보세요!',
+  openGraph: {
+    title: '헬스낵',
+    description: '홍두깨살, 토마호크, 떡볶이 등 헬스에 좋은 간식을 만나보세요!',
+  },
 };
 
 export default function RootLayout({
