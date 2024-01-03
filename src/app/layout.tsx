@@ -3,6 +3,7 @@ import { Hahmlet } from 'next/font/google';
 import './globals.css';
 import { ReactNode } from 'react';
 import NavBar from '@/components/NavBar';
+import Head from 'next/head';
 
 const inter = Hahmlet({ subsets: ['latin', 'latin-ext', 'vietnamese'] });
 
@@ -28,6 +29,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko" suppressHydrationWarning={true}>
+      <Head>
+        <meta
+          name="naver-site-verification"
+          content="44b51371771d29a54d3f4c4a7d8d4a5b5b97e76d"
+        />
+      </Head>
       <body
         suppressHydrationWarning={true}
         className={`${inter.className} hidden-scroll overflow-x-hidden`}
