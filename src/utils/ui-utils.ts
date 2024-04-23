@@ -3,8 +3,9 @@ export function isLargeDevice(width: number): boolean {
 }
 
 export const logoList = [
-  { text: '메인', link: '#main' },
-  { text: '특징', link: '#features' },
-  { text: '상품', link: '#products' },
+  { text: '리뷰', link: '#review' },
+  { text: '주간 베스트', link: '#weekly-best' },
+  { text: '상품 목록', link: '#products' },
+  { text: '가치', link: '#value' },
   { text: '연락처', link: '#contact' },
 ];
