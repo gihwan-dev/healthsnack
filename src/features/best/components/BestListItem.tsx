@@ -13,8 +13,18 @@ const BestListItem = ({ image, title, src }: Props) => {
       className="w-full overflow-hidden rounded-md bg-white transition-all hover:-translate-y-2"
       style={{ maxWidth: 367 }}
     >
-      <Link href={src} target="_blank">
-        <Image src={image} alt="best product image" width={367} height={291} />
+      <Link
+        href={src}
+        target="_blank"
+        className={'relative h-[291px] w-[367px] overflow-hidden'}
+      >
+        <Image
+          src={image}
+          alt="best product image"
+          width={367}
+          height={291}
+          className={'object-cover'}
+        />
         <div className="whitespace-pre-wrap break-normal px-12 py-3 text-center text-lg font-semibold">
           {title}
         </div>
