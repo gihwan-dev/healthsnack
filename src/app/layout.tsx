@@ -32,7 +32,11 @@ export default function RootLayout({
   footer: ReactNode;
 }) {
   return (
-    <html lang="ko" suppressHydrationWarning={true}>
+    <html
+      lang="ko"
+      suppressHydrationWarning={true}
+      className={'w-screen overflow-x-hidden'}
+    >
       <head>
         <meta
           name="naver-site-verification"
@@ -41,14 +45,14 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning={true}
-        className={`${inter.className} hidden-scroll overflow-x-hidden`}
+        className={`${inter.className} hidden-scroll w-screen overflow-x-hidden pt-[94px]`}
       >
         <NavBar />
-        {children}
-        {hero}
+        {reviews}
         {best}
         {products}
-        {reviews}
+        {hero}
+        {children}
         {footer}
       </body>
     </html>

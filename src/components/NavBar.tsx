@@ -23,17 +23,17 @@ export default function NavBar() {
   }, []);
 
   return (
-    <nav
-      className={
-        'section flex flex-row justify-between py-6 -bg--Black items-center'
-      }
-    >
-      <LogoWithText />
-      {isLargeDevice(screenWidth) ? (
-        <LargeScreenNavBar />
-      ) : (
-        <SmallScreenNavBar />
-      )}
+    <nav className={'fixed left-0 top-0 z-10 w-screen bg-foreground px-8 py-6'}>
+      <div
+        className={'section flex w-full flex-row items-center justify-between'}
+      >
+        <LogoWithText />
+        {isLargeDevice(screenWidth) ? (
+          <LargeScreenNavBar />
+        ) : (
+          <SmallScreenNavBar />
+        )}
+      </div>
     </nav>
   );
 }

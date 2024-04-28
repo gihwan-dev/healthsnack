@@ -31,13 +31,13 @@ const ProductItem: React.FC<Props> = ({
       }}
       className={`${
         visibility ? '' : 'hidden'
-      } relative left-1/2 z-0 -translate-x-1/2 transition-all duration-700 xl:left-0 xl:translate-x-0`}
+      } relative left-1/2 z-0 -translate-x-1/2 overflow-hidden rounded-lg transition-all duration-700 xl:left-0 xl:translate-x-0`}
     >
       <Image
         fill={true}
         src={image}
         alt="product image"
-        className={`overflow-hidden rounded-md ${isBlur ? 'blur-sm' : ''}`}
+        className={`overflow-hidden object-cover ${isBlur ? 'blur-sm' : ''}`}
       />
       {isCenter ? (
         <motion.div
